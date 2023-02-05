@@ -1,83 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
 
-		<link rel="icon" href="img/pointer.png"/>
+    <title>NewsJuice</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?q=weather&pageno=1">Weather</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?q=sports&pageno=1">Sports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?q=Esports&pageno=1">ESports</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              name="q"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <!-- <input
+              class="form-control me-2"
+              name="pageno"
+              type="hidden"
+              value="1"
+              placeholder="Search"
+              aria-label="Search"
+            /> -->
 
-		<link rel="stylesheet" href="vendor/css/normalize.css" />
-		<link rel="stylesheet" href="vendor/css/fontawesome.css" />
+            <input
+              class="form-control me-2"
+              name="pageno"
+              type="hidden"
+              value="1"
+              placeholder="Search"
+              aria-label="Search"
+            />
 
-		<link
-			href="https://fonts.googleapis.com/css?family=Oswald&display=swap"
-			rel="stylesheet"
-		/>
-		<link 
-			href="https://fonts.googleapis.com/css?family=Livvic&display=swap"
-			rel="stylesheet"
-		/>
-		<link 
-			href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" 
-			rel="stylesheet"
-		/>
+            <!-- <input
+              class="form-control me-2"
+              name="query"
+              type="hidden"
+              placeholder="Search"
+              aria-label="Search"
+            /> -->
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container mx-auto">
+      <h1 class="text-center my-2">
+        <span id="queryText"></span>- NewsJuice News(<span
+          id="queryResults"
+        ></span
+        >results)
+      </h1>
 
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/responisve.css" />
-		<title>Circular Doubly Linked List</title>
-	</head>
-	
-	<body>
-		
-				
-		<header>
+      <div id="content" class="row mx-2">
+        <img src="" alt="" />
+        Loading...
+      </div>
 
-				
-				<div>
-					<h1 >Circular Doubly Linked List</h1>
-				</div>
-				
-				
-			</div>
-			<div class="gradient-border"></div>
-		</header>
-
-		<main>
-			<div class="as1"><div><section class="list" id="list"></section></div><div class="ima" id="ima"><img src="img\Capture.PNG"></div></div>
-			<section class="errors">
-				<div class="error-message">
-					<p id="error"></p>
-				</div>
-			</section>
-			<div id="value" class="value" style="color: white;padding-left: 3rem;font-size: 28px;padding-top: 2rem; font-family: 'Montserrat', sans-serif;" ></div>
-
-			<section class="operations">
-				<div class="wrapper">
-					<div>
-						<button class="button" id="set-btn">Insert At Beginning</button>
-						<input type="number" placeholder="Data" />
-					</div>
-
-					<div>
-						<button class="button" id="insert-btn">Insert At Position</button>
-						<input type="number" placeholder="Position" />
-						<input type="number" placeholder="Data" />
-					</div>
-
-					<div>
-						<button class="button" id="add-btn">Insert At End</button>
-						<input type="number" placeholder="Data" />
-					</div>
-
-					
-				</div>
-			</section>
-		</main>
-
-		<script src="vendor/js/fontawesome.js"></script>
-		<script src="js/LinkedList.js"></script>
-		<script src="js/main.js"></script>
-		<script src="js/animation.js"></script>
-	</body>
+      <div class="prevNext my-4 d-flex justify-content-center">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a id="pre" class="page-link" href="#">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a id="next" class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      let articlesPerPage;
+      let totalPages;
+      console.log("Hey i am javascript!");
+      let query = window.location.search
+        .split("?")[1]
+        .split("&")[0]
+        .split("=")[1];
+      let page = parseInt(
+        window.location.search.split("?")[1].split("&")[1].split("=")[1]
+      );
+      console.log(query, page);
+      const fetchNews = async (query, pageNo) => {
+        let a = await fetch(
+          `/api?q=${query}&apiKey=a8d3c49a0fe04e59a575784f7a780f48&pageSize=10&page=${pageNo}`
+        );
+        let r = await a.json();
+        console.log(r);
+        queryText.innerHTML = query.replace("+", " ");
+        queryResults.innerHTML = r.totalResults;
+        totalPages = Math.ceil(r.totalResults / articlesPerPage);
+        pre.href = `/?=${query}&pageNo=${pageNo - 1}`;
+        next.href = `/?=${query}&pageNo=${pageNo + 1}`;
+        let str = "";
+        for (let item of r.articles) {
+          let date = new Date(item.publishedAt).toLocaleDateString();
+          str =
+            str +
+            `<div class="card m-2" style="width: 18rem;">
+      <img src="${item.urlToImage}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${item.title}</h5>
+        <span class="fw-bold">Published </span> : ${date}
+        <p class="card-text">${item.description}</p>
+        <a target="_blank" href="${item.url}" class="btn btn-primary">Read More...</a>
+      </div>
+    </div>`;
+        }
+        content.innerHTML = str;
+      };
+      fetchNews(query, page);
+    </script>
+  </body>
 </html>
