@@ -157,7 +157,10 @@
         }
         content.innerHTML = str;
       };
-      fetchNews(query, page);
+      if (query == null && page == null) {
+        query = "sports";
+        page = 1;
+      } else fetchNews(query, page);
     </script>
   </body>
 </html>
